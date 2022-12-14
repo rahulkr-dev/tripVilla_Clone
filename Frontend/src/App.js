@@ -1,13 +1,9 @@
-
-import {ChakraProvider} from "@chakra-ui/react"
-import Home from "./Pages/Home";
+import  AllRoutes  from "./Routes/AllRoutes";
 function App() {
   return (
-   <>
-    <ChakraProvider>
-      {/* <Home/> */}
-    </ChakraProvider>
-   </>
+    <>
+      <AllRoutes />
+    </>
   );
 }
 

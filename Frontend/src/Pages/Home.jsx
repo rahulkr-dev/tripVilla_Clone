@@ -5,11 +5,10 @@ import {Navbar,Header,CarouselDestination,MidSection1,MidSection2} from "../Comp
 const Home = () => {
   return (
     <Box>
-        <Navbar/>
         <Header/>
         <CarouselDestination/>
     </Box>
   )
 }
 
-export default Home
+export default Home;
