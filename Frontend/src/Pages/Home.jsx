@@ -6,7 +6,6 @@ import {Navbar,Header,CarouselDestination,MidSection1,MidSection2,BottomCarousel
 const Home = () => {
   return (
     <Box>
-        <Navbar/>
         <Header/>
         <CarouselDestination/>
         <MidSection1/>
@@ -17,4 +16,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
