@@ -26,20 +26,21 @@ const responsive = {
 
 
 
-const CarouselDestination = () => {
+const BottomCarousel = () => {
 
     return (
         <Box p="3rem">
-            <Heading fontSize="25px" pb="1rem" >Top Destinations</Heading>
+            <Heading fontSize="25px" pb="1rem" >Vacation Ideas</Heading>
             <Carousel responsive={responsive}>
                 {arrC.map((item,i)=>(
                     <Box key="i" >
                         <CarouselImage w="214px" h="160px" src={item} />
                     </Box>
                 ))}
-            </Carousel>;
+            </Carousel>
+            <a> so all Ideas</a>
         </Box>
     )
 }
 
-export default CarouselDestination
+export default BottomCarousel

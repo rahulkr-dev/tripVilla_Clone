@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react';
-import {Navbar,Header,CarouselDestination,MidSection1,MidSection2} from "../Components/HomePage"
+import {Navbar,Header,CarouselDestination,MidSection1,MidSection2,BottomCarousel,HomeFooter} from "../Components/HomePage"
+
 
 const Home = () => {
   return (
@@ -8,6 +9,10 @@ const Home = () => {
         <Navbar/>
         <Header/>
         <CarouselDestination/>
+        <MidSection1/>
+        <MidSection2 />
+        <BottomCarousel/>
+        <HomeFooter />
     </Box>
   )
 }
