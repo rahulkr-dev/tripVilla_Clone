@@ -1,9 +1,4 @@
 const express = require("express");
-const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
-const UserModel = require("../model/user.model");
-
-const authorization = require("../middlewares/authorization");
 const {
   signup,
   login,
