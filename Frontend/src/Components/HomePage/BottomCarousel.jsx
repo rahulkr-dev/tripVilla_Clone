@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { arrC } from './demoData';
 import CarouselImage from './CarouselImage';
+import { Link } from 'react-router-dom';
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
@@ -38,7 +39,9 @@ const BottomCarousel = () => {
                     </Box>
                 ))}
             </Carousel>
-            <a> so all Ideas</a>
+            <Box textDecoration="underline" mt="10px" fontWeight="400" fontSize="13px" color="#1e87f0">
+                <Link to="/collections" >SHOW ALL IDEAS</Link>
+            </Box>
         </Box>
     )
 }

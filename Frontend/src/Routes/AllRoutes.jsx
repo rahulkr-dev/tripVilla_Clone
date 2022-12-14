@@ -5,6 +5,9 @@ import { Navbar } from "../Components/HomePage";
 import LoginCard from "../Components/auth/LoginCard";
 import SignupCard from "../Components/auth/SignupCard";
 import Home from "../Pages/Home";
+import Demo from "../Pages/Demo";
+import DemoForImage from "../Pages/DemoForImage";
+import Collections from "../Pages/Collections";
 
 function AllRoutes() {
   return (
@@ -15,6 +18,7 @@ function AllRoutes() {
         <Route path="/login" element={<LoginCard />}></Route>
         <Route path="/signup" element={<SignupCard />}></Route>
         <Route path="/resetpassword" element={<Forgetpassword />}></Route>
+        <Route path="/collections" element={<Collections />}></Route>
       </Routes>
     </>
   );

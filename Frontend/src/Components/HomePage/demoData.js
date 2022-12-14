@@ -90,5 +90,10 @@ const homeOwner = [
     
 ]
 
+const guestArr = new Array(50);
+for(let i=1;i<=50;i++){
+    guestArr.push(`Guest ${i}`)
+}
 
-export {arrC,midSec1,communites,homeInv,homeOwner}
+
+export {arrC,midSec1,communites,homeInv,homeOwner,guestArr}
