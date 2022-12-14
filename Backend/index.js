@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dbConnect = require("./src/config/db");
-const { userRouter } = require("./src/routes/allroutes");
+const { userRouter, hotelRouter } = require("./src/routes/allroutes");
 
 const app = express();
 
@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/user", userRouter);
+app.use("/hotel", hotelRouter);
 
 app.listen(8080, async () => {
   try {
