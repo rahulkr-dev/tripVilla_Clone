@@ -3,11 +3,10 @@ const findhotel = require("../controllers/hotel.controller");
 
 const app = express.Router();
 
-app.get("/", async (req, res) => {
-  console.log(req.body);
-  let city = "Jaipur";
+app.post("/", async (req, res) => {
+  let city = req.body.data.charAt(0).toUpperCase() + req.body.data.slice(1);
+  console.log(city);
   try {
-    console.log(city);
     let hotel = await findhotel(city);
     return res.send(hotel);
   } catch (error) {

@@ -11,13 +11,16 @@ function Hotels() {
   let [data, setdata] = useState([]);
   const toast = useToast();
   const navigate = useNavigate();
-  let cityname=useSelector((store)=>store.search.searchData.location)
+  let cityname = useSelector((store) => store.search.searchData.location);
   useEffect(() => {
     getdata();
   }, []);
   async function getdata() {
+    console.log(cityname);
     try {
-      let res = await axios.get(`http://localhost:8080/hotel`,cityname);
+      let res = await axios.post(`http://localhost:8080/hotel`, {
+        data: cityname,
+      });
       console.log(res);
       setdata(res.data);
       setToast(toast, "Hotels In This City Are Below", "success");
@@ -29,7 +32,14 @@ function Hotels() {
   }
   return (
     <>
-      <Box display={"flex"} flexWrap={"wrap"} gap={5} width={"80%"} m={"auto"} mt={5}>
+      <Box
+        display={"flex"}
+        flexWrap={"wrap"}
+        gap={5}
+        width={"80%"}
+        m={"auto"}
+        mt={5}
+      >
         {data?.map((ele) => (
           <HotelCard
             imageUrl={ele.photo2}

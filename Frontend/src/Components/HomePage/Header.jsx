@@ -23,7 +23,7 @@ const Header = () => {
     let store = useSelector(store => store.search)
     if(varified){
         // console.log(store.searchData)
-        return <Navigate to={`/search/${store.searchData.location}`} />
+        return <Navigate to={`/hotel`} />
     }
 
     const handleLocation = (e) => {
