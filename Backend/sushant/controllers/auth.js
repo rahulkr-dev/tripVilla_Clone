@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const createError = require("../utilities/error");
 
+
 // Register User
 exports.register = async (req, res, next) => {
   try {
@@ -53,18 +54,3 @@ exports.login = async (req, res, next) => {
   }
 };
 
-// exports.login = async (req, res, next) => {
-//   try {
-
-//     const user = User.findOne({
-//       name: req.body.name,
-//       email: req.body.email,
-//       password: hash,
-//     });
-
-//     await newUser.save();
-//     res.status(200).send("User has been created.");
-//   } catch (err) {
-//     next(err);
-//   }
-// };

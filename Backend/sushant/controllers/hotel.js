@@ -35,8 +35,7 @@ exports.deleteHotel = async (req, res, next) => {
 };
 
 exports.getHotel = async (req, res, next) => {
-  try {
-    const hotel = await Hotel.findById(req.params.id);
+
     res.status(200).json(hotel);
   } catch (err) {
     next(err);
@@ -45,6 +44,7 @@ exports.getHotel = async (req, res, next) => {
 
 exports.getHotels = async (req, res, next) => {
   const { min, max, ...others } = req.query;
+
   try {
     const hotels = await Hotel.find({
       ...others,
