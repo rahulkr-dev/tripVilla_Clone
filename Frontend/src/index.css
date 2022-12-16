@@ -23,3 +23,7 @@ code {
   border: 3px solid transparent;
   filter: grayscale(20%);
 }
+
+.sideBarContent p:hover{
+color: #ffffffb3;
+}

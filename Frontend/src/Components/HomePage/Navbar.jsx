@@ -56,16 +56,17 @@ const Navbar = () => {
     <Flex
       bg="#262626"
       pr="3rem"
+      pl="3rem"
       justify="space-between"
       align="center"
-      h="60px"
+      h="65px"
     >
       <Link to={"/"}>
         <Image
           mt="-0.2rem"
           overflow="hidden"
           borderRadius="full"
-          boxSize="90px"
+          boxSize="80px"
           src={LOGO}
           alt="The Cozy Trip"
         />

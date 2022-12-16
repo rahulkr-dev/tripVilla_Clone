@@ -10,15 +10,17 @@ import {
     Button,
     Input,
     useDisclosure,
+    Text,
   } from '@chakra-ui/react'
 import { HamburgerIcon } from "@chakra-ui/icons"
+import SidebarContent from "./SidebarContent"
 export default function NavDrawer() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
   
     return (
         <>
-        <HamburgerIcon onClick={onOpen} />
+        <HamburgerIcon _hover={{cursor:"pointer"}} boxSize="1.4rem"  onClick={onOpen} />
         <Drawer
           isOpen={isOpen}
           placement='right'
@@ -31,12 +33,8 @@ export default function NavDrawer() {
             <DrawerHeader>Create your account</DrawerHeader>
   
             <DrawerBody>
-              rahul
+              <SidebarContent />
             </DrawerBody>
-  
-            <DrawerFooter>
-             this is footer
-            </DrawerFooter>
           </DrawerContent>
         </Drawer>
     </>
