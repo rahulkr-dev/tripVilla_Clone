@@ -5,55 +5,179 @@ const createError = require("../utilities/error");
 const nodemailer = require("nodemailer");
 const sendEmail = require("../utilities/sendEmail");
 
-// Register User
-exports.register = async (req, res, next) => {
-  try {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
+const dotenv = require("dotenv");
+dotenv.config();
 
-    const newUser = new User({
-      ...req.body,
+async function register({ email, password, name }) {
+  let user = await User.findOne({ email: email });
+  try {
+    if (user) {
+      return { status: "Failed", message: "Please try with different email" };
+    }
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
+    user = await User.create({
+      email: email,
       password: hash,
+      name: name,
+    });
+    return "Signed in successfully";
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function login({ email, password }) {
+  let user = await User.findOne({ email });
+
+  if (!user) {
+    return { status: "failed", message: "Please check your email" };
+  }
+
+  const matchpassword = await bcrypt.compare(password, user.password);
+
+  if (!matchpassword) {
+    return { status: "failed", message: "Please check your password" };
+  }
+
+  const token = jwt.sign({ user }, "1234", { expiresIn: "1 hr" });
+  const refreshtoken = jwt.sign({ user }, "refresh1234", {
+    expiresIn: "7 days",
+  });
+
+  return {
+    jwttoken: token,
+    userid: user._id,
+    refreshtoken: refreshtoken,
+    message: "Login Successfully",
+  };
+}
+
+// Logout
+exports.logout = async (req, res, next) => {
+  try {
+    res.cookie("access_token", null, {
+      expires: new Date(Date.now()),
+      httpOnly: true,
     });
 
-    await newUser.save();
-    res.status(200).send("User has been created.");
-  } catch (err) {
-    next(err);
+    res.status(200).json({
+      sucess: true,
+      mssage: "Logged Out Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    next(error);
   }
 };
 
-// Login User
-
-exports.login = async (req, res, next) => {
-  try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) return next(createError(404, "User not found!"));
-
-    const isPasswordCorrect = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
-    if (!isPasswordCorrect)
-      return next(createError(400, "Wrong password or email!"));
-
-    const token = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
-      process.env.JWT
-    );
-
-    const { password, isAdmin, ...otherDetails } = user._doc;
-    res
-      .cookie("access_token", token, {
-        httpOnly: true,
-      })
-      .status(200)
-      .json({ ...otherDetails });
-  } catch (err) {
-    console.log(err);
-    next(err);
+async function refresh(bearerToken) {
+  if (!bearerToken || !bearerToken.startsWith("Bearer ")) {
+    return { message: "Login again Session Expired", status: "Failed" };
   }
-};
+
+  const refreshtoken = bearerToken.split(" ")[1];
+
+  const verifyRefreshToken = jwt.verify(refreshtoken, "refresh1234");
+
+  if (verifyRefreshToken) {
+    const user = verifyRefreshToken.user;
+    const token = jwt.sign({ user }, "1234", { expiresIn: "1 hr" });
+    return {
+      jwttoken: token,
+      userid: user._id,
+    };
+  } else {
+    return { message: "Login again Session Expired", status: "Failed" };
+  }
+}
+
+async function resetpassword({ email, password }) {
+  let filter = { email: email };
+  let update = { password: password };
+  let user = await User.findOneAndUpdate(filter, update);
+  return "Password updated successfully Login Now";
+}
+
+const transport = nodemailer.createTransport({
+  // service: "gmail",
+  host: process.env.SMPT_HOST,
+  // secure: "false",
+  port: 587,
+  auth: {
+    user: process.env.SMPT_MAIL,
+    pass: process.env.SMPT_PASSWORD,
+  },
+});
+
+async function checkemail(email) {
+  let user = await User.findOne({ email: email });
+
+  if (user) {
+    const otp = Math.floor(Math.random() * (9999 - 1000) + 1000);
+    transport.sendMail({
+      to: user.email,
+      subject: "Password reset OTP",
+      from: "TheCozyVila@gmail.com",
+      text: `Your password reset otp is ${otp}. This OTP will valid for 5 minutes.`,
+    });
+    return { email: user.email, otp: otp };
+  } else {
+    return { status: "failed", message: "With This Email There Is No User" };
+  }
+}
+
+module.exports = { register, login, refresh, checkemail, resetpassword };
+
+// // Register User
+// exports.register = async (req, res, next) => {
+//   try {
+//     const salt = bcrypt.genSaltSync(10);
+//     const hash = bcrypt.hashSync(req.body.password, salt);
+
+//     const newUser = new User({
+//       ...req.body,
+//       password: hash,
+//     });
+
+//     await newUser.save();
+//     res.status(200).send("User has been created.");
+//   } catch (err) {
+//     next(err);
+//   }
+// };
+
+// // Login User
+
+// exports.login = async (req, res, next) => {
+//   try {
+//     const user = await User.findOne({ email: req.body.email });
+//     if (!user) return next(createError(404, "User not found!"));
+
+//     const isPasswordCorrect = await bcrypt.compare(
+//       req.body.password,
+//       user.password
+//     );
+//     if (!isPasswordCorrect)
+//       return next(createError(400, "Wrong password or email!"));
+
+//     const token = jwt.sign(
+//       { id: user._id, isAdmin: user.isAdmin },
+//       process.env.JWT
+//     );
+
+//     const { password, isAdmin, ...otherDetails } = user._doc;
+//     res
+//       .cookie("access_token", token, {
+//         httpOnly: true,
+//       })
+//       .status(200)
+//       .json({ ...otherDetails });
+//   } catch (err) {
+//     console.log(err);
+//     next(err);
+//   }
+// };
 
 // Logout
 exports.logout = async (req, res, next) => {

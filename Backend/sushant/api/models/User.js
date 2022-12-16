@@ -24,7 +24,9 @@ const UserSchema = new mongoose.Schema(
       default: false,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
+  { resetPasswordToken: String },
+  { resetPasswordExpire: Date }
 );
 
 module.exports = mongoose.model("UserTripVilla", UserSchema);
