@@ -2,11 +2,16 @@ import React from 'react'
 import "./payment.css";
 import { DatePicker } from 'antd';
 import {Link} from "react-scroll"
+import {useState} from "react"
+import moment from "moment"
 const{RangePicker} = DatePicker
 
 
 function Payment() {
-  return (
+const[dates,setDates] = useState([])
+console.log(dates)
+
+        return (
         <>
         
      <div className='left_head'>
@@ -42,7 +47,16 @@ function Payment() {
                         <h1 className='rupie'> ₹9742  </h1>
                         <p className='pernight'>per night</p>
                         <form className='form2'>
-                                <RangePicker className='date'/>
+                                <RangePicker
+                                onChange={(values)=>{
+                                        setDates(values.map(item=>{
+                                                return moment(item).format('DD-MM-YYYY')
+                                        }))    
+                                        
+                                       
+
+                                }}
+                                className='date'/>
                                
                                 
                                 <input placeholder='1 guest' 
