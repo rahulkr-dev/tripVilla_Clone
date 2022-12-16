@@ -35,7 +35,7 @@ exports.deleteHotel = async (req, res, next) => {
 };
 
 exports.getHotel = async (req, res, next) => {
-
+  try {
     res.status(200).json(hotel);
   } catch (err) {
     next(err);
