@@ -13,11 +13,7 @@ const HotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  state: {
-    type: String,
-    required: true,
-  },
-  address: {
+
     type: String,
     required: true,
   },
@@ -26,6 +22,7 @@ const HotelSchema = new mongoose.Schema({
   },
   title: {
     type: String,
+
   },
   description: {
     type: String,
@@ -36,10 +33,7 @@ const HotelSchema = new mongoose.Schema({
     min: 0,
     max: 5,
   },
-  reviewCount: {
-    type: Number,
-    default: 0,
-  },
+
   rooms: {
     type: [String],
   },
@@ -54,4 +48,4 @@ const HotelSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("HotelTripVilla", HotelSchema);
+

@@ -24,7 +24,7 @@ router.delete("/:id", deleteHotel);
 
 // GET
 // router.get("/:id", getHotel);
-router.get("/", getHotel);
+
 
 // GET ALL
 router.get("/", getHotels);

@@ -2,7 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const createError = require("../utilities/error");
-const nodemailer = require("nodemailer");
+
 
 // Register User
 exports.register = async (req, res, next) => {
@@ -54,50 +54,3 @@ exports.login = async (req, res, next) => {
   }
 };
 
-// Logout
-exports.logout = async (req, res, next) => {
-  try {
-    res.cookie("access_token", null, {
-      expires: new Date(Date.now()),
-      httpOnly: true,
-    });
-
-    res.status(200).json({
-      sucess: true,
-      mssage: "Logged Out Successfully",
-    });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-};
-
-// forgot password
-const transport = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
-  secure: "false",
-  port: 587,
-  auth: {
-    user: process.env.NODEMAILERUSER,
-    pass: process.env.NODEMAILERPASSWORD,
-  },
-});
-
-exports.forgotPassword = async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email });
-
-  // try {
-  if (user) {
-    const otp = Math.floor(Math.random() * (9999 - 1000) + 1000);
-    transport.sendMail({
-      to: user.email,
-      subject: "Password reset OTP",
-      from: "TheCozyVila@gmail.com",
-      text: `Your password reset otp is ${otp}. This OTP will valid for 5 minutes.`,
-    });
-    return { email: user.email, otp: otp };
-  } else {
-    return { status: "failed", message: "With This Email There Is No User" };
-  }
-};

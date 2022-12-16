@@ -4,7 +4,7 @@ import InfoCard from './InfoCard'
 
 const MidSection2Card = ({head,arr,btn}) => {
     return (
-        <Box p="3rem" boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' m="3rem"
+        <Box maxW="100%" boxSize="border-box" w={['90vw','max-content','max-content']} p={["1rem","2rem","3rem"]} boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px' m={["1rem","2rem","3rem"]}
        
         >
             <Heading mb="2rem" textAlign="center" as="h2" fontSize="23px" color="#666666">{head}</Heading>
