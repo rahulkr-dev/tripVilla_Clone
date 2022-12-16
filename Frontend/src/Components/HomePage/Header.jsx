@@ -24,7 +24,7 @@ const Header = () => {
     // console.log(searchList)
     if(varified){
         // console.log(store.searchData)
-        return <Navigate to={`/search/${store.searchData.location}`} />
+        return <Navigate to={`/hotels`} />
     }
 
     const handleLocation = (e) => {
