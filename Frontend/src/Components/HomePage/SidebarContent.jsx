@@ -2,7 +2,7 @@ import { VStack,Text, Box, Center } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SidebarContent = () => {
+const SidebarContent = ({onClose}) => {
   return (
     <Box className='sideBarContent' fontSize="13px" color="#fff" >
         <VStack borderBottom="1px solid gray">
@@ -19,8 +19,8 @@ const SidebarContent = () => {
             <Text lineHeight="10px"  mb="-10px">See what homes are up for sale from</Text>
             <Text m="0" lineHeight="0px">different property owners</Text>
         </VStack>
-        <VStack p="1rem 0 1rem 0" fontSize="14px" color="#ffffff80" borderBottom="1px solid gray">
-          <Link> <Text>About Us</Text></Link>
+        <VStack onClick={onClose} p="1rem 0 1rem 0" fontSize="14px" color="#ffffff80" borderBottom="1px solid gray">
+          <Link to="/about-us" > <Text>About Us</Text></Link>
           <Link> <Text>Privacy Policy</Text></Link>
           <Link><Text>Terms of Use</Text></Link>
           <Link><Text>FAQs</Text></Link>
