@@ -13,7 +13,7 @@ const HotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  address: {
     type: String,
     required: true,
   },
@@ -22,7 +22,6 @@ const HotelSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-
   },
   description: {
     type: String,
@@ -33,7 +32,6 @@ const HotelSchema = new mongoose.Schema({
     min: 0,
     max: 5,
   },
-
   rooms: {
     type: [String],
   },
@@ -47,5 +45,3 @@ const HotelSchema = new mongoose.Schema({
     default: false,
   },
 });
-
-

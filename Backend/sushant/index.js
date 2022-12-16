@@ -19,7 +19,7 @@ const PORT = process.env.PORT;
 
 const connect = async () => {
   try {
-
+    mongoose.set("strictQuery", true);
     await mongoose.connect(process.env.DB_URL);
     console.log("Connected to mongoDB.");
   } catch (error) {
