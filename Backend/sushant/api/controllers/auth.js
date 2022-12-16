@@ -180,22 +180,22 @@ module.exports = { register, login, refresh, checkemail, resetpassword };
 // };
 
 // Logout
-exports.logout = async (req, res, next) => {
-  try {
-    res.cookie("access_token", null, {
-      expires: new Date(Date.now()),
-      httpOnly: true,
-    });
+// exports.logout = async (req, res, next) => {
+//   try {
+//     res.cookie("access_token", null, {
+//       expires: new Date(Date.now()),
+//       httpOnly: true,
+//     });
 
-    res.status(200).json({
-      sucess: true,
-      mssage: "Logged Out Successfully",
-    });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-};
+//     res.status(200).json({
+//       sucess: true,
+//       mssage: "Logged Out Successfully",
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     next(error);
+//   }
+// };
 
 // forgot password by otp
 
