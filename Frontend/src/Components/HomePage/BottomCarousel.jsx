@@ -17,7 +17,7 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 3
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -27,15 +27,17 @@ const responsive = {
 
 
 
-const BottomCarousel = () => {
+const BottomCarousel = ({data}) => {
 
     return (
         <Box p="3rem">
             <Heading fontSize="25px" pb="1rem" >Vacation Ideas</Heading>
             <Carousel responsive={responsive}>
-                {arrC.map((item,i)=>(
-                    <Box key="i" >
-                        <CarouselImage w="214px" h="160px" src={item} />
+                {data.map((item,i)=>(
+                    <Box key="i" p={["5px"]} >
+                        <CarouselImage w="214px" h="160px" src={item.img}
+                        h1={item.text} h2=""
+                        />
                     </Box>
                 ))}
             </Carousel>

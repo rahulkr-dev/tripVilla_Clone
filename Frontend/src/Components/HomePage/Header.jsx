@@ -21,6 +21,7 @@ const Header = () => {
 
     let searchList = useSelector(store => store.search.data)
     let store = useSelector(store => store.search)
+    // console.log(searchList)
     if(varified){
         // console.log(store.searchData)
         return <Navigate to={`/search/${store.searchData.location}`} />
@@ -28,7 +29,7 @@ const Header = () => {
 
     const handleLocation = (e) => {
         setLocation(e.target.value)
-        dispatch(search_from_homePage(location))
+        dispatch(search_from_homePage(e.target.value))
     }
 
     const handleLocationItem = (item)=>{
@@ -70,22 +71,23 @@ const Header = () => {
             <Box>
                 <Image src="https://d2v8elt324ukrb.cloudfront.net/static/new_template/media/Pimal2-1.2d5d237dbd32.jpg"
                     alt='header iamge'
-                    h="calc(100vh-200px)"
-                    maxH="500px"
+                    h={['70vh','70vh',"calc(100vh-200px)"]}
+                    maxH="600px"
                     w="full"
                     filter="contrast(50%)"
                 />
             </Box>
-            <Heading fontSize="29px" left="17%" color="#fff" fontWeight="bold" pos="absolute" top="27%">Book Hotels Vacation Rentals Top Holiday</Heading>
-            <Heading fontSize="30px" left="17%" color="#fff" fontWeight="bold" pos="absolute" top="33%">Top Holiday Homes - Villas, Apartments & Homestays</Heading>
+            <Heading textAlign="center" fontSize={['18px','0',"29px"]} left="17%" color="#fff" fontWeight="bold" pos="absolute" top={['1rem',"10%","27%"]}>Book Hotels Vacation Rentals Top Holiday</Heading>
+            <Heading textAlign="center" fontSize={['14px','0',"29px"]} left="17%" color="#fff" fontWeight="bold" pos="absolute" top={['4.5rem','3.5rem',"33%"]}>Top Holiday Homes - Villas, Apartments & Homestays</Heading>
             <Grid
-                w={{ lg: "880px" }} templateColumns={{ lg: "repeat(5,1fr)" }} bg="#ffffff"
+                w={{lg: "880px" }} templateColumns={{base:"repeat(1,1fr)", lg: "repeat(5,1fr)" }} bg="#ffffff"
                 pos="absolute" top="50%" left="50%" transform="translate(-50%,-50%)"
                 p="10px"
+                boxSize="border-box"
 
             >
                 <Box>
-                    <InputGroup w={{ lg: "286px" }} >
+                    <InputGroup w={{lg: "286px" }} >
 
                         <InputLeftElement
                             pointerEvents='none'
