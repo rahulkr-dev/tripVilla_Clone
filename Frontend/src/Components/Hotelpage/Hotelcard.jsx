@@ -1,5 +1,6 @@
 import { StarIcon } from "@chakra-ui/icons";
 import { Badge, Box, Button, Image, Stack } from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
 
 export function HotelCard({
   imageUrl,
@@ -74,16 +75,18 @@ export function HotelCard({
         </Box>
       </Box>
       <Stack width={"83.5%"} alignItems={"start"} m={"auto"}>
-        <Button
-          variant={"outline"}
-          borderColor={"teal.500"}
-          mt={-2}
-          mb={5}
-          _hover={{ bgColor: "teal.600", color: "white" }}
-          onClick={() => localStorage.setItem("abc", JSON.stringify(data))}
-        >
-          Book Now
-        </Button>
+        <Link to={"/payment"}>
+          <Button
+            variant={"outline"}
+            borderColor={"teal.500"}
+            mt={-2}
+            mb={5}
+            _hover={{ bgColor: "teal.600", color: "white" }}
+            onClick={() => localStorage.setItem("abc", JSON.stringify(data))}
+          >
+            Book Now
+          </Button>
+        </Link>
       </Stack>
     </Box>
   );
