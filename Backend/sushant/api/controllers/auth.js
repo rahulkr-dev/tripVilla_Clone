@@ -100,13 +100,13 @@ async function resetpassword({ email, password }) {
 }
 
 const transport = nodemailer.createTransport({
-  // service: "gmail",
-  host: process.env.SMPT_HOST,
-  // secure: "false",
+  service: "gmail",
+  host: "smtp.gmail.com",
+  secure: "false",
   port: 587,
   auth: {
-    user: process.env.SMPT_MAIL,
-    pass: process.env.SMPT_PASSWORD,
+    user: process.env.NODEMAILERUSER,
+    pass: process.env.NODEMAILERPASSWORD,
   },
 });
 

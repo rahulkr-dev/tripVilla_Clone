@@ -13,7 +13,7 @@ export function HotelCard({
   const property = {
     imageUrl: imageUrl,
     imageAlt: "Rear view of modern home with pool",
-    beds: availaberooms,
+    beds: `${Math.floor(Math.random() * 3) + 1}`,
     baths: `${Math.floor(Math.random() * 3) + 1}`,
     title: title,
     formattedPrice: `$ ${formattedPrice} `,
@@ -77,6 +77,7 @@ export function HotelCard({
         <Button
           variant={"outline"}
           borderColor={"teal.500"}
+          mt={-2}
           mb={5}
           _hover={{ bgColor: "teal.600", color: "white" }}
           onClick={() => localStorage.setItem("abc", JSON.stringify(data))}

@@ -44,9 +44,10 @@ exports.deleteHotel = async (req, res, next) => {
 // };
 
 exports.getHotelByCity = async (req, res, next) => {
-  console.log(req.body);
+  console.log("hi")
+  console.log(req);
   try {
-    const hotel = await Hotel.find({ city: req.body.city });
+    const hotel = await Hotel.find({ city: req.body.data.city });
     res.status(200).json(hotel);
   } catch (err) {
     next(err);

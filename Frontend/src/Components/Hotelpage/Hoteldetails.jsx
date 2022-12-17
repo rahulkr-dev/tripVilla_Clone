@@ -11,14 +11,22 @@ function Hotels() {
   let [data, setdata] = useState([]);
   const toast = useToast();
   const navigate = useNavigate();
-  let cityname=useSelector((store)=>store.search.searchData.location)
+  let cityname = useSelector((store) => store.search.searchData.location);
   useEffect(() => {
     getdata();
   }, []);
   async function getdata() {
     try {
-      let res = await axios.get(`http://localhost:8080/hotel`,cityname);
+      let res = await axios.post(`http://localhost:8800/api/hotels`, {
+        data: {
+          city: cityname,
+        },
+      });
       console.log(res);
+      if (res.data.length === 0) {
+        setToast(toast, "Hotels Not Found", "error");
+        return navigate("/");
+      }
       setdata(res.data);
       setToast(toast, "Hotels In This City Are Below", "success");
     } catch (error) {
@@ -29,15 +37,22 @@ function Hotels() {
   }
   return (
     <>
-      <Box display={"flex"} flexWrap={"wrap"} gap={5} width={"80%"} m={"auto"} mt={5}>
+      <Box
+        display={"flex"}
+        flexWrap={"wrap"}
+        gap={5}
+        width={"80%"}
+        m={"auto"}
+        mt={5}
+      >
         {data?.map((ele) => (
           <HotelCard
-            imageUrl={ele.photo2}
-            reviewCount={ele.number_of_reviews}
-            rating={ele.star_rating}
+            imageUrl={ele.photos[0]}
+            reviewCount={ele.reviewCount}
+            rating={ele.rating}
             availaberooms={ele.numberrooms}
-            formattedPrice={ele.rates_from}
-            title={ele.hotel_name}
+            formattedPrice={ele.cheapestPrice}
+            title={ele.title}
             data={ele}
           />
         ))}
