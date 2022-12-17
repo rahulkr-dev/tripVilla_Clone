@@ -17,7 +17,7 @@ function Hotels() {
   }, []);
   async function getdata() {
     try {
-      let res = await axios.post(`http://localhost:8800/api/hotels`, {
+      let res = await axios.post(`http://localhost:8080/hotel`, {
         data: {
           city: cityname,
         },

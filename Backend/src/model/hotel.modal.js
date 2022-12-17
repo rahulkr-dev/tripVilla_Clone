@@ -1,46 +1,59 @@
 const { Schema, model } = require("mongoose");
 
 const HotelSchema = new Schema({
-  hotel_id: Number,
-  chain_id: Number,
-  chain_name: String,
-  brand_id: Number,
-  brand_name: String,
-  hotel_name: String,
-  hotel_formerly_name: String,
-  hotel_translated_name: String,
-  addressline1: String,
-  addressline2: String,
-  zipcode: String,
-  city: String,
-  state: String,
-  country: String,
-  countryisocode: String,
-  star_rating: Number,
-  longitude: Number,
-  latitude: Number,
-  url: String,
-  checkin: String,
-  checkout: String,
-  numberrooms: Number,
-  numberfloors: Number,
-  yearopened: Number,
-  yearrenovated: Number,
-  photo1: String,
-  photo2: String,
-  photo3: String,
-  photo4: String,
-  photo5: String,
-  overview: String,
-  rates_from: Number,
-  continent_id: Number,
-  continent_name: String,
-  city_id: Number,
-  country_id: Number,
-  number_of_reviews: Number,
-  rating_average: Number,
-  rates_currency: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+    required: true,
+  },
+  photos: {
+    type: [String],
+  },
+  title: {
+    type: String,
+  },
+  desc: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5,
+  },
+  reviewCount: {
+    type: Number,
+    default: 0,
+  },
+  rooms: {
+    type: [String],
+  },
+  cheapestPrice: {
+    type: Number,
+    required: true,
+  },
+  featured: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
-const HotelModel = model("HotelShema1", HotelSchema);
+
+const HotelModel = model("HotelTripVilla", HotelSchema);
 
 module.exports = HotelModel;
