@@ -14,8 +14,11 @@ const { verifyAdmin } = require("../utilities/verifyToken");
 
 const router = express.Router();
 
+// GET HOTEL BY CITY
+router.post("/", getHotelByCity);
+
 // CREATE
-router.post("/", verifyAdmin, createHotel);
+// router.post("/", verifyAdmin, createHotel);
 
 // UPDATE
 router.put("/:id", verifyAdmin, updateHotel);
@@ -25,9 +28,6 @@ router.delete("/:id", deleteHotel);
 
 // GET
 // router.get("/:id", getHotel);
-
-// GET HOTEL BY CITY
-router.get("/", getHotelByCity);
 
 // GET ALL
 router.get("/", getHotels);
