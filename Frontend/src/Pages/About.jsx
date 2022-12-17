@@ -22,22 +22,22 @@ const About = () => {
                 <SimpleGrid mt="1.4rem" gap="2rem" columns={[1, 1, 2]} borderRadius=".4rem" p="2rem 1.4rem" border="1px solid #f3f3f3" >
                     <Box pos="relative" p="1rem" boxShadow="lg" h="182px">
                         <Text pl="2rem" color="#30bbb1" fontSize="1.5rem" fontWeight="bold" >Holiday Rentals</Text>
-                        <Text>One of the largest Holiday Rental Platforms in Asia</Text>
+                        <Text pl="2rem" >One of the largest Holiday Rental Platforms in Asia</Text>
                         <Center left="0" top="0" fontSize="1.5rem" color="white" fontWeight="bold" boxSize="2.6rem" bg="#30bbb1" pos="absolute" >1</Center>
                     </Box>
                     <Box pos="relative" p="1rem" boxShadow="lg" h="182px">
                         <Text pl="2rem" color="#30bbb1" fontSize="1.5rem" fontWeight="bold" >Capability Development</Text>
-                        <Text>Provision of Software, Best Practices and Training to owners and Staff members involved in the trade</Text>
+                        <Text pl="2rem">Provision of Software, Best Practices and Training to owners and Staff members involved in the trade</Text>
                         <Center left="0" top="0" fontSize="1.5rem" color="white" fontWeight="bold" boxSize="2.6rem" bg="#30bbb1" pos="absolute" >2</Center>
                     </Box>
                     <Box pos="relative" p="1rem" boxShadow="lg" h="182px">
                         <Text pl="2rem" color="#30bbb1" fontSize="1.5rem" fontWeight="bold" >Community Management</Text>
-                        <Text>Development and Management of Holiday Communities offering a well designed environment in harmony with Nature</Text>
+                        <Text pl="2rem">Development and Management of Holiday Communities offering a well designed environment in harmony with Nature</Text>
                         <Center left="0" top="0" fontSize="1.5rem" color="white" fontWeight="bold" boxSize="2.6rem" bg="#30bbb1" pos="absolute" >3</Center>
                     </Box>
                     <Box pos="relative" p="1rem" boxShadow="lg" h="182px">
                         <Text pl="2rem" color="#30bbb1" fontSize="1.5rem" fontWeight="bold" >Exchange Solutions</Text>
-                        <Text>Enhance the lives of Vacation Home Owners by allowing them to experience other homes in exchange for stays in their property</Text>
+                        <Text pl="2rem">Enhance the lives of Vacation Home Owners by allowing them to experience other homes in exchange for stays in their property</Text>
                         <Center left="0" top="0" fontSize="1.5rem" color="white" fontWeight="bold" boxSize="2.6rem" bg="#30bbb1" pos="absolute" >4</Center>
                     </Box>
                 </SimpleGrid>
@@ -74,7 +74,7 @@ const About = () => {
                         <Text>{investor_otherAngles}</Text>
                     </Box>
 
-                    <Grid mt="3rem" gap="1.5rem" fontSize="14px">
+                    <Grid id="contact" mt="3rem" gap="1.5rem" fontSize="14px">
                         <Text fontSize="25px">Offices</Text>
                         <Box>
                             <Text color="#737373" fontWeight="bold" >Singapore (Headquarter) </Text>

@@ -8,6 +8,9 @@ import Home from "../Pages/Home";
 import Collections from "../Pages/Collections";
 import Hotels from "../Components/Hotelpage/Hoteldetails";
 import About from "../Pages/About";
+import Privacy from "../Pages/Privacy";
+import Terms from "../Pages/Terms";
+import Faq from "../Pages/Faq";
 
 function AllRoutes() {
   return (
@@ -21,6 +24,10 @@ function AllRoutes() {
         <Route path="/collections" element={<Collections />}></Route>
         <Route path="/hotels" element={<Hotels/>}></Route>
         <Route path="/about-us" element={<About/>}></Route>
+        <Route path="/privacy" element={<Privacy/>}></Route>
+        <Route path="/terms" element={<Terms/>}></Route>
+        <Route path="/faq" element={<Faq/>}></Route>
+        <Route path="/about-us/#contact" element={<About/>}></Route>
       </Routes>
     </>
   );
