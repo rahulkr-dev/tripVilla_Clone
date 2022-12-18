@@ -3,9 +3,8 @@ const findhotel = require("../controllers/hotel.controller");
 
 const app = express.Router();
 
-app.get("/", async (req, res) => {
-  console.log(req.body);
-  let city = "Jaipur";
+app.post("/", async (req, res) => {
+  let city = req.body.data.city;
   try {
     console.log(city);
     let hotel = await findhotel(city);

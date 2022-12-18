@@ -5,6 +5,9 @@ import { Navbar } from "../Components/HomePage";
 import LoginCard from "../Components/auth/LoginCard";
 import SignupCard from "../Components/auth/SignupCard";
 import Home from "../Pages/Home";
+import Collections from "../Pages/Collections";
+import Hotels from "../Components/Hotelpage/Hoteldetails";
+
 
 function AllRoutes() {
   return (
@@ -15,6 +18,8 @@ function AllRoutes() {
         <Route path="/login" element={<LoginCard />}></Route>
         <Route path="/signup" element={<SignupCard />}></Route>
         <Route path="/resetpassword" element={<Forgetpassword />}></Route>
+        <Route path="/collections" element={<Collections />}></Route>
+        <Route path="/hotels" element={<Hotels/>}></Route>
 
       </Routes>
     </>

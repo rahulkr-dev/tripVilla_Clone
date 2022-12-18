@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.collection-container p{
+  transition: all .3s;
+}
+.collection-container img{
+  transition: all .3s;
+  filter: contrast(70%);
+}
+.collection-container img:hover,.collection-container p{
+  /* background-color: green; */
+  border: 3px solid transparent;
+  filter: grayscale(20%);
+}
+
+.sideBarContent p:hover,.footer-links p:hover{
+color: #ffffffb3;
+}
+.footer-links p:hover{
+  text-decoration: underline;
+}
