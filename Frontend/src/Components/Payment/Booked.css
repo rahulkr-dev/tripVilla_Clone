@@ -1,0 +1,17 @@
+
+
+.blue{
+        background-color: #1e87f0;
+        color: aliceblue;
+        text-align: left;
+        height: 300px;
+        border: 1px solid rgb(12, 12, 12);
+}
+.blue h1{
+        font-size: 20px;
+}
+.right{
+        border: 1px solid pink;
+        height: 500px;
+        width: 40%;
+}

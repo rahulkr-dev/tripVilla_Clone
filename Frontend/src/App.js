@@ -1,15 +1,13 @@
-import  AllRoutes  from "./Routes/AllRoutes";
-import "./index.css"
-import SingleHotelDetails from "./Pages/SingleHotelDetails";
-// import Payment from "./Components/Payment/Payment";
+
+import React from 'react'
+
 function App() {
   return (
-    <>
-      {/* <AllRoutes /> */}
-      {/* <Payment /> */}
-      <SingleHotelDetails />
-    </>
-  );
+    <div>
+      
+    </div>
+  )
 }
 
-export default App;
+export default App
+
