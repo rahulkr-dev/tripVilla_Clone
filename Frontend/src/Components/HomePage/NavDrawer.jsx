@@ -33,7 +33,7 @@ export default function NavDrawer() {
             <DrawerHeader>Create your account</DrawerHeader>
   
             <DrawerBody>
-              <SidebarContent />
+              <SidebarContent onClose={onClose} />
             </DrawerBody>
           </DrawerContent>
         </Drawer>

@@ -24,6 +24,9 @@ code {
   filter: grayscale(20%);
 }
 
-.sideBarContent p:hover{
+.sideBarContent p:hover,.footer-links p:hover{
 color: #ffffffb3;
+}
+.footer-links p:hover{
+  text-decoration: underline;
 }
