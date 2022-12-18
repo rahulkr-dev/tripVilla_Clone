@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 
 const unit = new Array(12).fill(0)
 const RightPart = () => {
+    let hoteldata = JSON.parse(localStorage.getItem("abc"));
     const [checkedIn,setCheckedIn] = useState('')
     const [checkedOut,setCheckedOut] = useState('')
     const [guest,setGuest] = useState(0)
     return (
         <Grid w="336px" color="#666666" mr="2rem">
             <Text fontSize="1.3rem" >Starting</Text>
-            <Heading fontWeight="400" color="black" fontSize="3.5rem" >₹2500</Heading>
-            <Text fontSize="1.2rem" p=" 0 0 0 10rem" mt="-1.5rem">per night</Text>
+            <Heading fontWeight="400" color="black" fontSize="3.5rem">₹{hoteldata.cheapestPrice}</Heading>
+            <Text fontSize="1.2rem" p=" 0 0 0 10rem"  mt="-1.0rem">per night</Text>
             <Center opacity=".4" fontWeight="bold" fontSize="1rem" m="1rem 0" bg="red.100" color="red" p="13px">Select units</Center>
             <Select borderRadius="0" placeholder='Select units'>
                 {

@@ -11,6 +11,7 @@ import HotelDetailsCrausel from '../Components/SingleHotel/HotelCrausel'
 import AboutFooter from '../Components/Utils/AboutFooter'
 
 const SingleHotelDetails = () => {
+    let hoteldata = JSON.parse(localStorage.getItem("abc"));
     return (
         <>
         <Flex fontSize="15px"  p="2.5rem" color="#666666" >
@@ -20,10 +21,10 @@ const SingleHotelDetails = () => {
                         <HotelDetailsCrausel />
                     </Box>
                     <Box p="2rem" >
-                        <Heading fontWeight="400" >Classic Room</Heading>
+                        <Heading fontWeight="400" >{hoteldata.title}</Heading>
                         <Flex mr="1rem" pb="1rem" borderBottom="1px solid #999999" m="1rem 0" gap="1rem" alignItems="center" >
                             <CiLocationOn size="1.5rem" />
-                            <Text>Betalbatim,Delhi,India</Text>
+                            <Text>{hoteldata.address}, India.</Text>
                         </Flex>
                         <Flex p="1rem 2rem 1rem 0" wrap="wrap" gap="1.3rem" >
                             {PRIVATE_ROOM_ETC.map((item, i) => (
