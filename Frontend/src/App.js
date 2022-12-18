@@ -1,10 +1,13 @@
 import Hotels from "./Components/Hotelpage/Hoteldetails";
-import  AllRoutes  from "./Routes/AllRoutes";
+import Booked from "./Components/Payment/Booked";
+// import  AllRoutes  from "./Routes/AllRoutes";
+
 function App() {
   return (
     <>
       {/* <AllRoutes /> */}
-      <Hotels/>
+      {/* <Hotels/> */}
+      <Booked/>
     </>
   );
 }
