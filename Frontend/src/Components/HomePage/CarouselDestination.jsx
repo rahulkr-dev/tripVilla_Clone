@@ -33,7 +33,7 @@ const CarouselDestination = ({ data }) => {
             <Heading fontSize="25px" pb="1rem" >Top Destinations</Heading>
             <Carousel responsive={responsive}>
                 {data.map((item, i) => (
-                    <Box key="i" p={["10px"]} >
+                    <Box key={i} p={["10px"]} >
                         <CarouselImage w="214px" h="160px" src={item.img} h1={item.location} h2={item.text}/>
                     </Box>
                 ))}

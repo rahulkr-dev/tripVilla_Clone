@@ -11,6 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* rahul start */
 .collection-container p{
   transition: all .3s;
 }
@@ -30,3 +32,13 @@ color: #ffffffb3;
 .footer-links p:hover{
   text-decoration: underline;
 }
+
+
+@media screen and (max-width: 1000px) {
+  .hotel-details-right-part{
+    display: none;
+  }
+}
+
+
+/* rahul work finished */
