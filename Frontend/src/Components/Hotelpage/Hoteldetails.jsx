@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setToast } from "../../Utils/extraFunctions";
+import AboutFooter from "../Utils/AboutFooter";
 
 function Hotels() {
   let [data, setdata] = useState([]);
@@ -63,6 +64,7 @@ function Hotels() {
     }
   };
   return (
+    <>
     <Box
       display={"flex"}
       flexWrap={"wrap"}
@@ -153,6 +155,8 @@ function Hotels() {
         ))}
       </Box>
     </Box>
+    <AboutFooter />
+    </>
   );
 }
 

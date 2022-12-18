@@ -7,11 +7,11 @@ import SignupCard from "../Components/auth/SignupCard";
 import Home from "../Pages/Home";
 import Collections from "../Pages/Collections";
 import Hotels from "../Components/Hotelpage/Hoteldetails";
-<<<<<<< HEAD
-// import Payment from "../Pages/Payment";
-=======
-
->>>>>>> 2d12d604ed3ead82bd2b9fc0d6b94dfffb596d73
+import About from './../Pages/About';
+import Privacy from "../Pages/Privacy";
+import Faq from './../Pages/Faq';
+import Terms from './../Pages/Terms';
+import SingleHotelDetails from "../Pages/SingleHotelDetails";
 
 function AllRoutes() {
   return (
@@ -23,12 +23,13 @@ function AllRoutes() {
         <Route path="/signup" element={<SignupCard />}></Route>
         <Route path="/resetpassword" element={<Forgetpassword />}></Route>
         <Route path="/collections" element={<Collections />}></Route>
+        <Route path="/about-us" element={<About/>}></Route>
+        <Route path="/privacy" element={<Privacy/>}></Route>
+        <Route path="/faq" element={<Faq/>}></Route>
+        <Route path="/terms" element={<Terms/>}></Route>
+        <Route path="/payment" element={<SingleHotelDetails/>}></Route>
         <Route path="/hotels" element={<Hotels/>}></Route>
-<<<<<<< HEAD
-        {/* <Route path="/payment" element={<Payment/>}></Route> */}
-=======
 
->>>>>>> 2d12d604ed3ead82bd2b9fc0d6b94dfffb596d73
       </Routes>
     </>
   );

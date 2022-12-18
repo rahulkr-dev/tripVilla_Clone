@@ -8,9 +8,11 @@ import { FiPaperclip } from "react-icons/fi"
 import { CiLocationOn } from "react-icons/ci"
 import { MdOutlinePolicy } from "react-icons/md"
 import HotelDetailsCrausel from '../Components/SingleHotel/HotelCrausel'
+import AboutFooter from '../Components/Utils/AboutFooter'
 
 const SingleHotelDetails = () => {
     return (
+        <>
         <Flex fontSize="15px"  p="2.5rem" color="#666666" >
             <Grid gap="3rem" borderRight="1px solid #999999" w="1030px" >
                 <Grid templateColumns={['repeat(1, 1fr)','repeat(1, 1fr)','repeat(2, 1fr)']} gap="1rem">
@@ -21,7 +23,7 @@ const SingleHotelDetails = () => {
                         <Heading fontWeight="400" >Classic Room</Heading>
                         <Flex mr="1rem" pb="1rem" borderBottom="1px solid #999999" m="1rem 0" gap="1rem" alignItems="center" >
                             <CiLocationOn size="1.5rem" />
-                            <Text>Betalbatim,Goa,India</Text>
+                            <Text>Betalbatim,Delhi,India</Text>
                         </Flex>
                         <Flex p="1rem 2rem 1rem 0" wrap="wrap" gap="1.3rem" >
                             {PRIVATE_ROOM_ETC.map((item, i) => (
@@ -131,6 +133,8 @@ const SingleHotelDetails = () => {
             </Box>
 
         </Flex>
+        <AboutFooter />
+        </>
     )
 }
 
