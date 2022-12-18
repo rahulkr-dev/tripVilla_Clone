@@ -12,6 +12,7 @@ import Privacy from "../Pages/Privacy";
 import Faq from './../Pages/Faq';
 import Terms from './../Pages/Terms';
 import SingleHotelDetails from "../Pages/SingleHotelDetails";
+import Booked from "../Components/Payment/Booked";
 
 function AllRoutes() {
   return (
@@ -29,6 +30,7 @@ function AllRoutes() {
         <Route path="/terms" element={<Terms/>}></Route>
         <Route path="/payment" element={<SingleHotelDetails/>}></Route>
         <Route path="/hotels" element={<Hotels/>}></Route>
+        <Route path="/booked" element={<Booked/>}></Route>
 
       </Routes>
     </>

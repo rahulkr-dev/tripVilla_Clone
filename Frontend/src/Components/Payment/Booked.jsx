@@ -52,6 +52,7 @@ else alert(`${formstate.fName},Your Room has booked`)
   }
   return (
     <>
+  
     <Box 
     // border={"1px solid black"} 
         display={"flex"} 
@@ -206,7 +207,7 @@ else alert(`${formstate.fName},Your Room has booked`)
           <Box   
           boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
           marginLeft={"-70px"} width={"90%"}
-          marginTop={"30px"} height={"1000px"}
+          marginTop={"30px"} height={"990px"}
           display={"grid"}>
           <Box>
           

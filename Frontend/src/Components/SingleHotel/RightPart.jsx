@@ -1,5 +1,6 @@
 import { Center, Flex, Grid, Heading, Input, Select, Text } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const unit = new Array(12).fill(0)
 const RightPart = () => {
@@ -45,8 +46,12 @@ const RightPart = () => {
 
             </Select>
             <Text  m="1rem 0" fontSize="13px" >Rateplan: Morning Breakfast (Continental Plan)</Text>
+            <Link to="/booked">
             <Center fontWeight="bold" opacity=".5" p="1rem" cursor="pointer" color="#fff" bg="#1E87F0"
+            
+
             >INSTANT BOOK</Center>
+            </Link>
         </Grid>
     )
 }
