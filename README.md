@@ -67,7 +67,7 @@ know their needs and to provide service accordingly and
  
 ## Demo
 
->Link - [Gusto](https://cozytrip.vercel.app/)
+>Link - [coZyTrip](https://cozytrip.vercel.app/)
 
 >Project demonstration link- 
 <a href="https://drive.google.com/file/d/1geqyM9R4jjYAm7CxLsHIu-v-4X2WI17t/view?usp=share_link">click here</a>
