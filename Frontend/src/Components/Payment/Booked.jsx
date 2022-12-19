@@ -20,6 +20,7 @@ import {
 import { DragHandleIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { setToast } from "../../Utils/extraFunctions";
+import { Link } from "react-router-dom";
 
 function Booked() {
   const toast = useToast();
@@ -291,7 +292,7 @@ function Booked() {
                 width={"200px"}
                 mt={3}
               >
-                Pay ₹ {hoteldata.cheapestPrice - 42}
+                <Link to="/">Pay ₹ {hoteldata.cheapestPrice - 42}</Link>
               </Center>
             </FormControl>
           </Box>
