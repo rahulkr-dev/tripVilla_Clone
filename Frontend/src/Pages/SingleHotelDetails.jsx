@@ -9,6 +9,7 @@ import { CiLocationOn } from "react-icons/ci"
 import { MdOutlinePolicy } from "react-icons/md"
 import HotelDetailsCrausel from '../Components/SingleHotel/HotelCrausel'
 import AboutFooter from '../Components/Utils/AboutFooter'
+import {Link as ReactScroll} from "react-scroll"
 
 const SingleHotelDetails = () => {
     let hoteldata = JSON.parse(localStorage.getItem("abc"));
@@ -37,19 +38,27 @@ const SingleHotelDetails = () => {
                 <Flex m="0 1.5rem" pb="10px" borderBottom="1px solid #999999" fontSize="13px" alignItems="center" gap="1.3rem">
                     <Flex  alignItems="center" gap="8px" >
                         <CiTimer size="1.3rem"  />
+                        <ReactScroll to="overview" >
                         <Text>OVERVIEW</Text>
+                        </ReactScroll>
                     </Flex>
                     <Flex alignItems="center" gap="8px" >
                         <FiPaperclip size="1.3rem" />
+                        <ReactScroll to="keyAmenities" >
                         <Text> AMENITIES</Text>
+                        </ReactScroll>
                     </Flex>
                     <Flex alignItems="center" gap="8px" >
                         <CiLocationOn size="1.3rem"  />
+                        <ReactScroll to="location" >
                         <Text>LOCATION</Text>
+                        </ReactScroll>
                     </Flex>
                     <Flex alignItems="center" gap="8px" >
                         <MdOutlinePolicy size="1.3rem"  />
+                        <ReactScroll to="policy" >
                         <Text>POLICY&FEES</Text>
+                        </ReactScroll>
                     </Flex>
                 </Flex>
                 <SimpleGrid columns={[1, 1, 2]} gap="1rem">
@@ -73,7 +82,7 @@ const SingleHotelDetails = () => {
                                 <Text fontSize="13.4" color="#999999" >Total Bookable Units</Text></Box>
                         </Center>
                     </SimpleGrid>
-                    <Box p="1rem" pr="3rem">
+                    <Box p="1rem" pr="3rem" id="overview">
                         <Text>These AC rooms come equipped with a minibar, 32 inch LED TV, 24 hours running hot/cold water, intercom and Wifi facilities. We also provide all the basic toiletries and cleaning is done on a daily basis</Text>
                         <Text m="1rem 0" fontWeight="bold" >Best For</Text>
                         <Flex wrap="wrap" gap="1rem" >
@@ -84,7 +93,7 @@ const SingleHotelDetails = () => {
                         <Text _hover={{textDecoration:"underline"}} mt="4rem" color="#1E87F0" >What can you do in & around Betalbatim</Text>
                     </Box>
                 </SimpleGrid>
-                <Box  p="2rem 2rem 2rem 0" className="keyAmenities" >
+                <Box  p="2rem 2rem 2rem 0" id="keyAmenities" >
                     <Heading borderBottom="1px solid #999999" pb="1.6rem" mr="2rem" color="black" fontWeight="400" fontSize="24px" mb="2rem">Key Amenities</Heading>
                     <Flex wrap="wrap" gap="1rem" >
                         {/* map the data and make flex wrap: wrap */}
@@ -111,13 +120,13 @@ const SingleHotelDetails = () => {
                         </Flex>
                     </Box>
                 </Box>
-                <Box className='hotel-details-page-map' >
+                <Box className='hotel-details-page-map' id="location" >
                     <Text borderBottom="1px solid #999999" pb="1.6rem" mr="2rem" mb="2rem" color="black" fontWeight="400" fontSize="24px" >Map</Text>
                     <Image src={hotelMap} />
                 </Box>
                 <Box color="#666666" fontSize="15px" >
                     <Text borderBottom="1px solid #999999" pb="1.6rem" mr="2rem" mb="15px" color="#333333" fontSize="24px" >Policies & Fees</Text>
-                    <SimpleGrid columns={[2, 2, 2]} gap="2rem">
+                    <SimpleGrid columns={[2, 2, 2]} gap="2rem" id="policy">
                         <Box>
                             <Text mb="8px" fontWeight="bold" >Default Cancellation Policy</Text>
                             <Text><span style={{fontWeight:"bold"}} >Non Refundable:</span> This is the strictest clause. As soon the booking is confirmed & payment is accepted, booking becomes non-refundable. Zero amount will be refunded to the customer if she or he cancels the booking.</Text>
