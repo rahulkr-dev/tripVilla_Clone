@@ -48,7 +48,7 @@ export default function SignupCard() {
   const handleSubmit = async () => {
     try {
       let response = await axios.post(
-        "http://localhost:8080/user/signup",
+        "https://cozytrip.up.railway.app/user/signup",
         signUpcreds
       );
       setToast(toast, "Signup Successfull", "success");
