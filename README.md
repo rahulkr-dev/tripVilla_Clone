@@ -35,18 +35,18 @@ know their needs and to provide service accordingly and
 
 1. Landing page and navigation bar
 
-
+![LandingPage](Frontend/src/Assects/readme/header.png)
 *******************************************************************************
 
 2. CozyTrip hotels page
 
-
+![LandingPage](Frontend/src/Assects/readme/header.png)
 *******************************************************************************
 
 3. Signup and sign-in pages
     
 
-
+![LandingPage](Frontend/src/Assects/readme/login.png)
 *******************************************************************************
 
 4. Payment Page
@@ -61,7 +61,7 @@ know their needs and to provide service accordingly and
 
 6. Footer section
 
-
+![LandingPage](Frontend/src/Assects/readme/footer.png)
 ***********************************************************************
 
  
