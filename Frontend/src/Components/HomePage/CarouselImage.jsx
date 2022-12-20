@@ -8,7 +8,7 @@ const CarouselImage = ({ h, w, h1, h2, src, alt,f }) => {
         des:h2 || "Vacations Rentels"
     }
     return (
-        <Link to={`/holiday-homes/${h1}`} place={place} >
+        <Link to={`/collections`} place={place} >
             <Box pos="relative" >
                 <Image
                     filter="contrast(70%)"
