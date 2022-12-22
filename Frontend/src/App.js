@@ -1,12 +1,17 @@
-import Hotels from "./Components/Hotelpage/Hoteldetails";
-import  AllRoutes  from "./Routes/AllRoutes";
+
+import React from 'react'
+import { Navbar } from './Components/HomePage'
+import SingleHotelDetails from './Pages/SingleHotelDetails'
+import AllRoutes from './Routes/AllRoutes'
+
 function App() {
   return (
-    <>
-      {/* <AllRoutes /> */}
-      <Hotels/>
-    </>
-  );
+    <div>
+      <AllRoutes />
+      {/* <SingleHotelDetails /> */}
+    </div>
+  )
 }
 
-export default App;
+export default App
+

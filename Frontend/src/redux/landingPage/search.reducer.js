@@ -13,9 +13,10 @@ const init = {
 }
 
 export const searchReducer = (state=init,{type,payload})=>{
+    // console.log('payload',payload)
     switch(type){
         case SEARCH_START:{
-            let filter = state.data.filter(item=>{
+            let filter = list.filter(item=>{
                 return item.cuisine.includes(payload) || item.name.includes(payload)
             })
             return {

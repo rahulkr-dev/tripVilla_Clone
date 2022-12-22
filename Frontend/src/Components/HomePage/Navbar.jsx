@@ -10,6 +10,7 @@ import {
   MenuList,
   VStack,
   useToast,
+  Box
 } from "@chakra-ui/react";
 import { ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { CgProfile } from "react-icons/cg";
@@ -20,6 +21,8 @@ import { logoutAPI } from "../../redux/authentication/auth.action";
 import { setToast } from "../../Utils/extraFunctions";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { currenices } from "./demoData";
+import NavDrawer from "./NavDrawer";
 
 const Navbar = () => {
   const token = useSelector((state) => state.auth.data.token);
@@ -30,7 +33,7 @@ const Navbar = () => {
   const handlelogout = () => {
     let jwt = Cookies.get("jwttoken");
     try {
-      let res = axios.post("http://localhost:8080/user/logout", {
+      let res = axios.post("https://cozytrip.up.railway.app/user/logout", {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
@@ -53,16 +56,17 @@ const Navbar = () => {
     <Flex
       bg="#262626"
       pr="3rem"
+      pl="3rem"
       justify="space-between"
       align="center"
-      h="60px"
+      h="65px"
     >
       <Link to={"/"}>
         <Image
           mt="-0.2rem"
           overflow="hidden"
           borderRadius="full"
-          boxSize="90px"
+          boxSize="80px"
           src={LOGO}
           alt="The Cozy Trip"
         />
@@ -109,24 +113,15 @@ const Navbar = () => {
           <MenuButton>
             INR <ChevronDownIcon />
           </MenuButton>
-          <MenuList color="#484848">
-            <MenuItem>INR</MenuItem>
-            <MenuItem>BAN</MenuItem>
-            <MenuItem>EURO</MenuItem>
+          <MenuList display="grid" gridTemplateColumns="repeat(3,1fr)" color="#484848">
+            {currenices.map(item => (
+              <MenuItem color="#1e87f0" key={item}>{item}</MenuItem>
+            ))}
           </MenuList>
         </Menu>
-        <Menu bg="#262626">
-          <MenuButton>
-            <HamburgerIcon />
-          </MenuButton>
-          <MenuList color="#484848">
-            <MenuItem>Download</MenuItem>
-            <MenuItem>Create a Copy</MenuItem>
-            <MenuItem>Mark as Draft</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem>Attend a Workshop</MenuItem>
-          </MenuList>
-        </Menu>
+        <Box>
+          <NavDrawer />
+        </Box>
       </Flex>
     </Flex>
   );

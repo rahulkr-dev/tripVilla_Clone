@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Heading } from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Heading, Grid } from '@chakra-ui/react'
 import list from "./content.json"
 import TabPanelCountry from './TabPanelCountry'
 
@@ -9,12 +9,15 @@ const HomeFooter = () => {
             <Heading m="1rem" fontSize="25px" color="#333333" >Holiday Homes Across The Globe</Heading>
             <Tabs>
                 <TabList>
-                    <Tab>ASIA</Tab>
-                    <Tab>EUROPE</Tab>
-                    <Tab>NORTH AMERICA</Tab>
-                    <Tab>SOUTH AMERICA</Tab>
-                    <Tab>AFRICA</Tab>
-                    <Tab>OCEANIA</Tab>
+                    <Grid gridTemplateColumns={["repeat(3,1fr)","repeat(4,1fr)","repeat(6,1fr)"]}>
+                        <Tab>ASIA</Tab>
+                        <Tab>EUROPE</Tab>
+                        <Tab>NORTH AMERICA</Tab>
+                        <Tab>SOUTH AMERICA</Tab>
+                        <Tab>AFRICA</Tab>
+                        <Tab>OCEANIA</Tab>
+                    </Grid>
+
                 </TabList>
 
                 <TabPanels>

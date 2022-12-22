@@ -13,7 +13,7 @@ import { setToast } from "../../Utils/extraFunctions";
 
 export const loginAPI = (data, toast, navigate) => async (dispatch) => {
   try {
-    let response = await axios.post("http://localhost:8080/user/login", data);
+    let response = await axios.post("https://cozytrip.up.railway.app/user/login", data);
     console.log(response);
     if (response.status === 201) {
       Cookies.set("jwttoken", response.data.jwttoken, {
@@ -46,7 +46,7 @@ export const logoutAPI = () => ({ type: AUTH_LOG_OUT });
 
 export const resetpassword = (data, toast, navigate) => async (dispatch) => {
   try {
-    let res = await axios.post("http://localhost:8080/user/checkmail", {
+    let res = await axios.post("https://cozytrip.up.railway.app/user/checkmail", {
       data,
     });
     dispatch({
@@ -70,7 +70,7 @@ export const resetpasswordremove = () => ({
 export const refreshCheck = (navigate) => async (dispatch) => {
   try {
     let refreshtoken = Cookies.get("refreshtoken");
-    let response = await axios.post("http://localhost:8080/user/refresh", {
+    let response = await axios.post("https://cozytrip.up.railway.app/user/refresh", {
       headers: {
         Authorization: "Bearer " + refreshtoken,
       },

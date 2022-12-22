@@ -10,7 +10,7 @@ const {
 const app = express.Router();
 
 app.post("/signup", async (req, res) => {
-  let { email, password, name} = req.body;
+  let { email, password, name } = req.body;
   try {
     console.log(email, password);
     let data = await signup({ email, password, name });
@@ -28,9 +28,10 @@ app.post("/login", async (req, res) => {
   try {
     let { email, password } = req.body;
     let data = await login({ email, password });
-    if (data.status == "Failed") {
+    if (data.status == "failed") {
       return res.status(500).json(data);
     }
+    console.log(data);
     return res.status(201).send(data);
   } catch (error) {
     res.status(500).send(error.message);
