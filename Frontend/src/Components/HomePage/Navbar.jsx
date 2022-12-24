@@ -33,7 +33,7 @@ const Navbar = () => {
   const handlelogout = () => {
     let jwt = Cookies.get("jwttoken");
     try {
-      let res = axios.post("https://cozytrip.up.railway.app/user/logout", {
+      let res = axios.post("https://cozytripbackend-production.up.railway.app/user/logout", {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },

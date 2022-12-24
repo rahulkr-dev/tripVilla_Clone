@@ -26,7 +26,7 @@ function Hotels() {
   }, []);
   async function getdata() {
     try {
-      let res = await axios.post(`https://cozytrip.up.railway.app/hotel`, {
+      let res = await axios.post(`https://cozytripbackend-production.up.railway.app/hotel`, {
         data: {
           city: cityname,
         },
@@ -51,7 +51,7 @@ function Hotels() {
     if (name === "filters" && value === "lhr") {
       try {
         console.log("hi");
-        let res = await axios.post(`https://cozytrip.up.railway.app/hotel/lhr`, {
+        let res = await axios.post(`https://cozytripbackend-production.up.railway.app/hotel/lhr`, {
           data: {
             city: cityname,
           },
